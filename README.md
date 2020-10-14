@@ -132,7 +132,7 @@ scene:      !include scenes.yaml
 script:     !include scripts.yaml
 
 # includes by folders for manual editing
-# the tag name "xxx old" is mandatory
+# the tag name "xxx old" is mandatory to use both, old and new way!
 
 # first you have to create the folders
 # the files in the folders need to have the suffix .yaml
