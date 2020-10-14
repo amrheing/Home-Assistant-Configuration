@@ -148,6 +148,7 @@ scene old:      !include_dir_merge_list  include_scenes/
 sensor:         !include_dir_merge_list  include_sensors/
 shell_command:  !include_dir_merge_named include_shell_commands/
 switch:         !include_dir_merge_list  include_switches/
+# noo need anymore to use this. Actual use the onvif integration
 #camera:         !include_dir_merge_list  include_cameras/
 homekit:        !include_dir_merge_named include_homekit/
 
