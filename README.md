@@ -1,4 +1,5 @@
-# automation_with_python_script
+# Automation with python_script
+
 Automation with python_scripts in HomeAssistant
 
 as i started it was difficult to find the best way to use automations.
