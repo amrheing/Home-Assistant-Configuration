@@ -54,6 +54,9 @@ panel_custom:
       
 zwave:
   # find the correct id in "ls -l /dev/serial/by-id/" 
+  # to use the id is much more better than to use the devicename
+  # the devicename can change after reboot
+  # use the id also in the docker configuration!
   usb_path: /dev/serial/by-id/usb-xxxzzzyyy333445 
   # create a network key on your ha server
   # cat /dev/urandom | tr -dc '0-9A-F' | fold -w 32 | head -n 1 | sed -e 's/\(..\)/0x\1, /g' -e 's/, $//'
