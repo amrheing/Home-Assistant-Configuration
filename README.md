@@ -20,7 +20,7 @@ i hope that is enough to understand my way for configuring automations
 
 Attention for the panel_custom integration:
 
-my local url is https://raspy5:8123/zwave-graph
+my local url is <https://raspy5:8123/zwave-graph>
 
 first i used https://raspy5.fritz.box:8123/zwave-graph - that was ok for the HA System, but the panel could not be loaded! 
 Until now i do not understand why...
