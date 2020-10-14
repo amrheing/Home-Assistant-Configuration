@@ -2,18 +2,18 @@
 
 Automation with python_scripts in HomeAssistant
 
-as i started it was difficult to find the best way to use automations.
+When i started with HomeAssistant (HA) it was difficult to find the best way to use automations.
 
-in the newer versions of HomeAssistant many things can be configured in the Web Gui.
+In the newer versions of HA many things can be configured in the Web Gui.
 
 That i do in the most ways. But for my python_scripts and there automation rules i do it with yaml files. 
-that is easier for me and also i can not edit them or delete them in the webgui.
-also the data in there is static, noo need to edit this over the time
+That is easier for me and also i can not edit them or delete them in the webgui.
+Also the data in there is static, no need to edit this over the time.
 
 All the python script will be copied to the folder "python_scripts" in the config folder.
 
 For the automation and all the other config files i added folders and added them as includes.
-Then the content of the folders has no need to include as once, an refresh "..." in "Server Controls" is enough
+Then the content of the folders has no need to include as once - an refresh "..." in "Server Controls" is enough
 
 after changes in python_scripts folder use RELOAD PYTHON SCRIPTS
 after changes in autmation folder use RELOAD AUTOMATIONS
@@ -23,10 +23,51 @@ i hope that is enough to understand my way for configuring automations
 ```yaml
 # configuration.yaml
 
-...
+homeassistant:
+  # Customization file
+  customize: !include customize.yaml
+  packages: !include_dir_named packages
+
+  auth_providers:
+    - type: trusted_networks
+      trusted_networks:
+        - 192.168.178.0/24
+    - type: homeassistant
 
 python_script:
 
+frontend:
+  themes: !include_dir_merge_named themes
+
+default_config:
+
+discovery:
+
+ios:
+
+config:
+
+lovelace:
+
+climate:  
+
+ffmpeg:
+  ffmpeg_bin: /usr/bin/ffmpeg
+
+stream:
+      
+cloud: !include cloud.yaml
+
+# Text to speech
+tts:
+  - platform: google_translate
+media_player:
+  - platform: soundtouch
+    host: 192.168.178.161
+    port: 8090
+    name: "Lydi's Zimmer"
+
+ 
 # add MDI Icon index to the sidebar
 panel_iframe:
   mdiindex:
