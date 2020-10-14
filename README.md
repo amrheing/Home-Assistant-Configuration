@@ -25,13 +25,17 @@ i hope that is enough to understand my way for configuring automations
 ...
 
 python_script:
-       
+
+# add MDI Icon index to the sidebar
 panel_iframe:
   mdiindex:
     title: MDI Icon Index
     icon: mdi:vector-square
     url: https://cdn.materialdesignicons.com/3.2.89/
- 
+
+# add the graphic zwave tree to the sidebar
+# add this before: https://github.com/AdamNaj/ZWaveGraphHA
+
 panel_custom:
   - name: zwave-graph-panel
     url_path: zwave-graph
@@ -60,7 +64,7 @@ zwave:
   device_config: !include zwave_device_config.yaml
   debug: true
 
-
+# secure your websie with your own certificates
 http:
   ssl_certificate: !secret ssl_certificate
   ssl_key: !secret ssl_key  
@@ -105,4 +109,3 @@ logs:
     pychromecast: debug
 ```
 
-group:          !include_dir_merge_named include_groups/
