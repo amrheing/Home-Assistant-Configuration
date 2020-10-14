@@ -20,6 +20,13 @@ after changes in autmation folder use RELOAD AUTOMATIONS
 
 i hope that is enough to understand my way for configuring automations
 
+Attention for the panel_custom integration:
+
+my local url is https://raspy5:8123/zwave-graph
+
+first i used https://raspy5.fritz.box:8123/zwave-graph - that was ok for the HA System, but the panel could not be loaded! 
+Until now i do not understand why...
+
 ```yaml
 # configuration.yaml
 
@@ -99,11 +106,13 @@ zwave:
   # to use the id is much more better than to use the devicename
   # the devicename can change after reboot
   # use the id also in the docker configuration!
-  usb_path: /dev/serial/by-id/usb-xxxzzzyyy333445 
+  usb_path: /dev/serial/by-id/usb-xxxzzzyyy333445
+  
   # create a network key on your ha server
   # cat /dev/urandom | tr -dc '0-9A-F' | fold -w 32 | head -n 1 | sed -e 's/\(..\)/0x\1, /g' -e 's/, $//'
   # this key is not my original :-)
   network_key: "0xAs, 0x2s, 0x2s, 0x39, 0x15, 0x5D, 0x9E, 0x61, 0xA7, 0xFA, 0x67, 0x9E, 0x61, 0x8D, 0xAA, 0x39"
+  
   # touch zwave_device_config.yaml in config folder if not present. 
   # the file is mandatory but empty
   device_config: !include zwave_device_config.yaml
@@ -119,13 +128,17 @@ http:
   cors_allowed_origins:
     - https://cast.home-assistant.io  
 
-# single files needed for automations editor
+# single files needed for automations editor in web ui
 automation: !include automations.yaml
 scene:      !include scenes.yaml
 script:     !include scripts.yaml
 
 # includes by folders for manual editing
 # the tag name "xxx_old" is mandatory
+
+# first you have to create the folders
+# the files in the folders need to have the suffix .yaml
+# all other files will not be used
 
 automation old: !include_dir_merge_list  include_automations/
 device_tracker: !include_dir_merge_list  include_device_trackers/
