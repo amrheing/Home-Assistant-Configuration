@@ -1,4 +1,4 @@
-# Automation with Python Script in HomeAssistant
+# HomeAssistant Configuration
 
 When i started with HomeAssistant (HA) it was difficult to find the best way to use automations.
 
